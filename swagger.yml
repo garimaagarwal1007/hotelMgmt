@@ -1,0 +1,38 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: 1.0.0
+  title: Swagger REST Article
+consumes:
+- application/json
+produces:
+- application/json
+
+basePath: /
+
+definitions:
+  Slots:
+    type: object
+
+# Paths supported by the server application
+paths:
+  /slots:
+    get:
+      operationId: controller.parking.all_slots
+      tags:
+      - Parking
+      summary: all slots
+      parameters:
+        - in: query
+          name: level
+          required: true
+          type: string
+        - in: query
+          name: vehicle
+          required: true
+          type: string
+      responses:
+        200:
+          description: Successful read operation
+          schema:
+            $ref: '#/definitions/Slots'
