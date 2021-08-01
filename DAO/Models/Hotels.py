@@ -14,9 +14,9 @@ class Hotels:
 
         @property
         def hotel_name(self):
-                return self.hotel_name
+                return self._hotel_name
 
-        @hotel_id.setter
+        @hotel_name.setter
         def hotel_name(self,hotel_name):
                 self._hotel_name=hotel_name
 
