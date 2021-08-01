@@ -80,19 +80,11 @@ class Hotels:
 hotel = Hotels()
 hotel.hotel_id=4
 hotel.hotel_name='Taj avenue'
-hotel.hotel_desc='premium'
 hotel.is_active=1
 hotel.address='near airoli'
 hotel.amenities='spacious'
 hotel.check_in='11:00 am'
 hotel.check_out='12:00 pm'
-
 print(upsert(hotel))
 
 
-test1 = []
-test = Hotels(1, 'Taj Nevil1', 'New fashioned hotel.', [], [], 'ABC', '12:00:00', '10:00:00', 1)
-test1.append(test)
-print(test.get_insert_header() + test.get_values())
-
-test2 = hotel_dao.ModelOps().bulk_insert(test1)

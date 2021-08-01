@@ -33,7 +33,7 @@ def upsert(obj):
     sql.append(") VALUES (")
     sql.append(", ".join(values))
     sql.append(") ON DUPLICATE KEY UPDATE ")
-    sql.append(", ".join("%s = '%s'" % (remove_prefix(k,"_"), v) for k, v in kwargs.items()))
+    sql.append(", ".join("%s = %s" % (remove_prefix(k,"_"), if_quaoted_values(v)) for k, v in kwargs.items()))
     sql.append(";")
     return "".join(sql)
 
@@ -51,3 +51,11 @@ def remove_prefix(text, prefix):
     if text.startswith(prefix):
         return text[len(prefix):]
     return text
+
+def if_quaoted_values(value):
+    if type(value) is str:
+      return "'%s'" % (value)
+    elif value is None:
+      return "%s" % ("''")
+    else:
+      return  "%s" % value
