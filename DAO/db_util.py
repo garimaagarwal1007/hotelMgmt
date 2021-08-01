@@ -33,7 +33,7 @@ def upsert(obj):
     sql.append(") VALUES (")
     sql.append(", ".join(values))
     sql.append(") ON DUPLICATE KEY UPDATE ")
-    sql.append(", ".join("%s = '%s'" % (k, v) for k, v in kwargs.items()))
+    sql.append(", ".join("%s = '%s'" % (remove_prefix(k,"_"), v) for k, v in kwargs.items()))
     sql.append(";")
     return "".join(sql)
 
