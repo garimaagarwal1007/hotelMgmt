@@ -1,4 +1,4 @@
-import configparser, sys, os
+import configparser
 
 PATH = "D:\hotelMgmt\cfg\config.ini"
 

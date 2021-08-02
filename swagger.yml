@@ -13,6 +13,9 @@ basePath: /
 definitions:
   Slots:
     type: object
+  login:
+
+
 
 # Paths supported by the server application
 paths:
@@ -36,3 +39,22 @@ paths:
           description: Successful read operation
           schema:
             $ref: '#/definitions/Slots'
+  /login:
+    post:
+      summary: Get login credentials for a user
+      requestbody:
+        description: A json object containing login credentials for a user
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/definition/login'
+      response:
+        200:
+          description: Logged in successfully
+          schema:
+            $ref: '#/definition/login'
+        401:
+          description: Invalid credentials
+          schema:
+            $ref: '#/definition/login'
