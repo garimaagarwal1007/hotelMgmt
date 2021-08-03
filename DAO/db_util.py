@@ -14,7 +14,7 @@ def read(obj):
     return "".join(sql)
 
 
-def upsert(obj):
+def insert(obj):
     """ update/insert rows into objects table (update if the row already exists)
         given the key-value pairs in kwargs """
     table=obj.__class__.__name__

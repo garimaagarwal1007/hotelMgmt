@@ -1,6 +1,6 @@
 import Constants
 from DAO import hotel_dao
-from DAO.db_util import upsert, read,delete
+from DAO.db_util import insert, read,delete
 
 
 class Hotels:
@@ -86,7 +86,7 @@ hotel.address='near airoli'
 hotel.amenities='spacious'
 hotel.check_in='11:00 am'
 hotel.check_out='12:00 pm'
-print(upsert(hotel))
+print(insert(hotel))
 print(read(hotel))
 print(delete(hotel))
 
