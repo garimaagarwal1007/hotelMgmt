@@ -1,4 +1,4 @@
-HOTEL_INSERT_HEADER = """insert into hotel (hotel_name, hotel_desc, is_active, check_in, check_out) values"""
+HOTEL_INSERT_HEADER = """insert into Hotel (hotel_name, hotel_desc, is_active, check_in, check_out) values"""
 
 HOTEL_ROOMS_INSERT_HEADER = """insert into hotel_rooms (room_type_id, hotel_id, room_no, room_desc, bed_type, is_air_conditioned) values"""
 
