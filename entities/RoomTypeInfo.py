@@ -1,6 +1,6 @@
 from DAO.db_util import insert
 from DAO.db_conn import DAO
-from flask import Blueprint
+from flask import Blueprint,request
 
 room_type_info = Blueprint('roomtypeinfo', __name__)
 
@@ -14,15 +14,10 @@ room_type_info = Blueprint('roomtypeinfo', __name__)
 #         self.display_price=2000
 
 @room_type_info.route('/insertroomtype',methods=['POST'])
-def insert_room_type(obj):
+def insert_room_type():
     print("hello world")
-    query=insert(obj)
+    data = request.data
+    query=insert(data)
     dao=DAO()
     result=dao.execute_non_execute(query)
     print(result)
-
-
-##following code needs to be added into admin portal
-
-# room_type=RoomTypeInfo()
-# room_type.insert_room_type()

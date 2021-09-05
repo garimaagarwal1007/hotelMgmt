@@ -1,6 +1,6 @@
 from DAO.db_util import insert
 from DAO.db_conn import DAO
-from flask import Blueprint
+from flask import Blueprint,request
 
 currency_master = Blueprint('currencymaster', __name__)
 
@@ -11,17 +11,9 @@ currency_master = Blueprint('currencymaster', __name__)
 #         self.country="USA"
 
 @currency_master.route('/insertcurrency')
-def insert_currency(obj):
-         query=insert(obj)
+def insert_currency():
+         data= request.data
+         query=insert(data)
          dao=DAO()
          result=dao.execute_non_execute(query)
          print(result)
-
-
-##following code needs to be added into admin portal
-
-# currency=CurrencyMaster()
-# currency.curr_name="Pound"
-# currency.curr_symbol="#"
-# currency.country="UK"
-# currency.insert_currency()

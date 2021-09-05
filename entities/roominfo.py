@@ -2,6 +2,7 @@ from DAO.db_util import insert
 from DAO.db_conn import DAO
 from flask import Blueprint,request
 
+
 room_info = Blueprint('roominfo', __name__)
 # class RoomInfo:
 #     def __init__(self):

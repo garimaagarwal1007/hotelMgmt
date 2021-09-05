@@ -1,6 +1,6 @@
 from DAO.db_util import insert
 from DAO.db_conn import DAO
-from flask import Blueprint
+from flask import Blueprint,request
 
 bed_type = Blueprint('bedtype', __name__)
 
@@ -10,14 +10,9 @@ bed_type = Blueprint('bedtype', __name__)
 #         self.bed_type_name="Single"
 
 @bed_type.route('/insertbedtype',methods=['POST'])
-def insert_bedtype(obj):
-         query=insert(obj)
+def insert_bedtype():
+         data= request.data
+         query=insert(data)
          dao=DAO()
          result=dao.execute_non_execute(query)
          print(result)
-
-
-##following code needs to be added into admin portal
-
-# bed_type=RoomBedTypes()
-# bed_type.insert_bedtype()

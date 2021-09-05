@@ -18,11 +18,3 @@ def insert_offer():
          result=dao.execute_non_execute(query)
          print(result)
 
-
-##following code needs to be added into admin portal
-
-# offer=OfferDetails()
-# offer.offer_desc="gpay"
-# offer.offer_discount=500
-# offer.is_percent=0
-# offer.insert_offer()
