@@ -2,16 +2,15 @@ from DAO.db_util import insert
 from DAO.db_conn import DAO
 from flask import Blueprint,request
 
-currency_master = Blueprint('currencymaster', __name__)
+bed_type = Blueprint('bedtype', __name__)
 
-# class CurrencyMaster:
+
+# class RoomBedTypes:
 #     def __init__(self):
-#         self.curr_name="Dollars"
-#         self.curr_symbol="$"
-#         self.country="USA"
+#         self.bed_type_name="Single"
 
-@currency_master.route('/insertcurrency')
-def insert_currency():
+@bed_type.route('/insertbedtype',methods=['POST'])
+def insert_bedtype():
          data= request.data
          query=insert(data)
          dao=DAO()
